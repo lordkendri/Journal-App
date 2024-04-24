@@ -1,11 +1,15 @@
 import { TurnedInNot } from "@mui/icons-material"
 import { Box, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material"
+import { useSelector } from "react-redux"
 
 export const SideBar = ({ drawerWidth = 240 }) => {
+
+    const { displayName } = useSelector(state => state.auth);
     return (
         <Box
             component='nav'
             sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+            className="animate__animated animate__fadeInLeft"
         >
             <Drawer
                 variant="permanent" // Puede ser temporary si se quiere ocultar o hacer otra cosa
@@ -21,7 +25,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
                         noWrap
                         component='div'
                     >
-                        Kendri Valdez</Typography>
+                        {displayName}</Typography>
                 </Toolbar>
 
                 <Divider />
@@ -35,8 +39,8 @@ export const SideBar = ({ drawerWidth = 240 }) => {
                                         <TurnedInNot />
                                     </ListItemIcon>
                                     <Grid container>
-                                        <ListItemText primary={text}/>
-                                        <ListItemText secondary={'Lorem ipsum dolor sit amet consectetur adipisicing elit.'}/>
+                                        <ListItemText primary={text} />
+                                        <ListItemText secondary={'Lorem ipsum dolor sit amet consectetur adipisicing elit.'} />
                                     </Grid>
                                 </ListItemButton>
                             </ListItem>
