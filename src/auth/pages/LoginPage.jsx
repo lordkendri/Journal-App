@@ -13,13 +13,12 @@ import { useForm } from '../../hooks/useForm'
 const formData = {
     email: '',
     password: '',
-}
+};
 
 const formValidations = {
     email: [(value) => value.includes('@'), 'El correo debe de tener un @'],
     password: [(value) => value.length >= 6, 'El Password debe de tener mas de 6 letras'],
-}
-
+};
 
 export const LoginPage = () => {
 

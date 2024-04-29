@@ -9,6 +9,12 @@ export const useForm = (initialForm = {}, formValidations = {}) => {
         createValidators();
     }, [formState]);
 
+    //Cuando el initialForm cambia, entonces se activa el efecto
+    useEffect(() => {
+        setFormState(initialForm);
+    }, [initialForm])
+
+
     //Solo va a cambiar si se llama el formValidation
     const isFormValid = useMemo(() => {
 

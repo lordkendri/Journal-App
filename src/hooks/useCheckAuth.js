@@ -3,6 +3,7 @@ import { FirebaseAuth } from "../Firebase/config";
 import { login, logout } from "../store/auth";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { startLoadingNote } from "../store/journal/thunks";
 
 
 export const useCheckAuth = () => {
@@ -15,10 +16,13 @@ export const useCheckAuth = () => {
             // console.log(user);
 
             //?Si no hay usuario llama al logout
-            if (!user) return dispatch(logout())
+            if (!user) return dispatch(logout());
+
             const { uid, email, displayName, photoURL } = user;
+
             //Si hay un usuario llama al login
-            dispatch(login({ uid, email, displayName, photoURL }))
+            dispatch(login({ uid, email, displayName, photoURL }));
+            dispatch(startLoadingNote());
         });
     }, []);
 
