@@ -26,7 +26,7 @@ export const startNewNote = () => {
         //Se crean valores en CloudFireStore
         //! se crea una especie de path qu define como se crearan las colecciones y los valores guardados
         const newDoc = doc(collection(FirebaseDB, `${uid}/journal/notes`));
-        const setDocResp = await setDoc(newDoc, newNote)
+        await setDoc(newDoc, newNote);
 
         // console.log({newDoc, setDocResp});
 
