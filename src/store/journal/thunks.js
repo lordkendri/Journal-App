@@ -36,8 +36,8 @@ export const startNewNote = () => {
 
         //!dispatch
 
-        dispatch(addNewEmptyNote(newNote)) //El payload es newNote
-        dispatch(setActiveNote(newNote)) //El payload es newNote
+        dispatch(addNewEmptyNote(newNote)); //El payload es newNote
+        dispatch(setActiveNote(newNote)); //El payload es newNote
 
 
 
